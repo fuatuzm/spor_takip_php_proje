@@ -118,6 +118,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
+
+
 <form method="POST">
     Kullanıcı Adı: <input type="text" name="username" required><br>
     Şifre: <input type="password" name="password" required><br>
@@ -138,6 +141,10 @@ $result = $conn->query("SELECT * FROM workout WHERE user_id = $user_id ORDER BY 
 echo "<h2>Spor Kayıtlarınız</h2>";
 echo "<a href='logout.php'>Çıkış Yap</a><br><br>";
 
+
+
+
+
 while ($row = $result->fetch_assoc()) {
     echo "Tarih: " . $row["workout_date"] . " | ";
     echo "Tür: " . $row["workout_type"] . " | ";
@@ -150,6 +157,10 @@ session_start();
 session_destroy();
 header("Location: login.php");
 exit();
+
+
+
+
 🔧 Notlar:
 Tüm dosyaları aynı dizinde tut.
 
@@ -163,10 +174,17 @@ Arayüz sade ama istersen Bootstrap ile şıklaştırabiliriz.
 
 İstersen şimdi buna bir de workout ekleme sayfası (add_workout.php) ekleyebiliriz. Onu da yapalım mı?
 
+
+
+
 Şunu dedin:
 hocalarımın bana verdiği hosting bilgilerini kullanarak kendi veritabanıma girip bu geliştirdiğim veritabanını oradada oluşturmam gerek nasıl yapıcam
 ChatGPT:
 Harika soru dostum! Sana adım adım hocanın verdiği hosting bilgileriyle kendi veritabanını nasıl kuracağını ve bu sistemini oraya nasıl taşıyacağını göstereceğim.
+
+
+
+
 
 🧠 Genel Mantık:
 Hosting’e phpMyAdmin üzerinden bağlanırsın.
@@ -174,6 +192,10 @@ Hosting’e phpMyAdmin üzerinden bağlanırsın.
 users ve workout tablolarını orada oluşturursun (ister elle, ister .sql dosyası ile).
 
 PHP dosyalarını FileZilla gibi bir FTP programıyla yükleyip yayına alırsın.
+
+
+
+
 
 ✅ Aşamalar:
 1. 🔑 Hosting Bilgilerini Topla:
@@ -189,12 +211,19 @@ phpMyAdmin Adresi: Genelde http://95.130.171.20/phpmyadmin/ gibi
 
 💬 Hocan sana bu bilgileri vermişti: Örnek adres ⇒ http://95.130.171.20/~st23360859024/
 
+
+
+
 2. 🛠 phpMyAdmin’e Gir ve Veritabanı Oluştur:
 Tarayıcına phpMyAdmin adresini yaz (örnek: http://95.130.171.20/phpmyadmin/)
 
 Giriş yap.
 
 Sol üstten Yeni > spor_takip adında bir veritabanı oluştur.
+
+
+
+
 
 SQL kısmına gel, şunu yapıştır:
 
@@ -206,6 +235,9 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 );
 
+
+
+
 -- WORKOUT TABLOSU
 CREATE TABLE workout (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -216,6 +248,9 @@ CREATE TABLE workout (
     notes TEXT,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+
+
 ✅ Çalıştır butonuna bas. Veritabanın hazır!
 
 3. 📂 PHP Dosyalarını Hosting’e Yükle
@@ -241,6 +276,9 @@ $conn = new mysqli("localhost", "kendi_usernamein", "şifren", "spor_takip");
 🧠 localhost genelde çalışır ama bazen IP veya 127.0.0.1 gerekebilir.
 Eğer emin değilsen hocandan DB host, DB kullanıcı, DB şifre ve DB adı sor.
 
+
+
+
 5. 🔗 Linkten Test Et
 Örnek:
 http://95.130.171.20/~st23360859024/create.php → Kayıt sayfası
@@ -254,16 +292,25 @@ CREATE TABLE users ( ... );
 CREATE TABLE workout ( ... );
 phpMyAdmin > "İçe Aktar" bölümünden .sql dosyasını yükle.
 
+
+
+
 Hazırsan:
 ✅ FileZilla bağlantısı yaptın mı?
 ✅ phpMyAdmin’e girebildin mi?
 
 Yardım istersen birlikte yapabiliriz, hangi aşamadaysan söyle!
 
+
+
+
 Şunu dedin:
 filezilla çalışma mantığı nedir elimde olan bilgilerle canlı host aktarımı nasıl oluyor 
 ChatGPT:
 Süper soru dostum! Sana FileZilla'nın mantığını ve elindeki hosting bilgileriyle nasıl canlıya dosya aktaracağını sade ve net şekilde anlatayım.
+
+
+
 
 🧠 FileZilla'nın Temel Mantığı Nedir?
 FileZilla, bir FTP istemcisidir. Yani:
@@ -271,6 +318,10 @@ FileZilla, bir FTP istemcisidir. Yani:
 Bilgisayarındaki dosyaları internetteki sunucuya (hosting'e) taşımana yarar.
 
 Sen bilgisayarından .php, .css, .html, resim.png dosyalarını alırsın → FileZilla ile hosting'e gönderirsin → Tarayıcıdan http://95.130.171.20/~kullaniciadi/ şeklinde canlı çalıştırırsın.
+
+
+
+
 
 🧳 Elindeki Bilgilerle Canlı Hosting'e Aktarım Aşamaları
 1. 🔧 Gerekli Bilgiler
@@ -281,6 +332,8 @@ Host/IP Adresi: Örn 95.130.171.20
 Kullanıcı adı: Örn st23360859024
 
 Şifre
+
+
 
 Hedef klasör: Genelde ~kullaniciadi veya public_html
 
@@ -298,6 +351,9 @@ Port	boş bırak veya 21 yaz
 FileZilla ikiye ayrılır:
 
 Sol Taraf	Sağ Taraf
+
+
+
 Bilgisayarındaki klasörler	Hosting sunucusu klasörleri
 Adımlar:
 
@@ -310,6 +366,10 @@ public_html/
 ~st23360859024/ gibi bir klasör
 
 Sağ tarafın içine dosyaları sürükle bırak ile taşı.
+
+
+
+
 
 Birkaç saniyede yüklenir.
 
@@ -326,11 +386,16 @@ http://95.130.171.20/~st23360859024/create.php
 Bilgisayarın	📤 FTP Üzerinden	🌍 Hosting
 .php dosyaları	⇒ taşıyorsun ⇒	Tarayıcıda çalışıyor
 🔍 Sık Sorulanlar
+
+
 🔒 Şifreyi bilmiyorum, ne yapmalıyım?
 → Hocana veya sistem yöneticine sor, genelde e-posta ile vermiş olurlar.
 
 📁 Hangi klasöre atmalıyım?
 → ~stxxxxxx klasörü varsa onun içine at. public_html varsa orasıdır.
+
+
+
 
 🌐 Tarayıcıda site açılmıyor?
 → Dosya yanlış klasöre atılmış olabilir veya index.php yoktur.
@@ -339,13 +404,22 @@ Bilgisayarın	📤 FTP Üzerinden	🌍 Hosting
 👉 FileZilla’da bağlantı kurabildin mi?
 👉 Sağ tarafta hangi klasörler var, ekran görüntüsü at istersen.
 
+
+
+
 Şunu dedin:
 bu konuşmayı direkt githuba kopyala yapıştır yapıyorum aı.md dosyasına olmuyor aq
 ChatGPT:
 Dostum haklısın, GitHub AI.md dosyasında bazen format ya da içerik sıkıntısı çıkarabiliyor. Sana yukarıdaki konuşmanın GitHub’a sorunsuz yapıştırabileceğin temiz, sade ve açıklamalı bir versiyonunu hazırladım:
 
+
+
+
 📡 FileZilla ile PHP Projemi Hosting'e Yükleme Rehberi
 Bu rehber, PHP ile geliştirilmiş olan Spor Takip Sistemi projesinin, hocaların verdiği hosting bilgileri kullanılarak canlı sunucuya nasıl yükleneceğini adım adım anlatır.
+
+
+
 
 📌 Gerekli Bilgiler
 Projeyi yüklemek için hocanız tarafından size sağlanan şu bilgiler gerekir:
@@ -356,12 +430,20 @@ FTP Kullanıcı Adı: st23360859024
 
 FTP Şifre: (hocanın verdiği şifre)
 
+
+
+
+
+
+
 phpMyAdmin Adresi: http://95.130.171.20/phpmyadmin/
 
 Klasör Adı: ~st23360859024 gibi
 
 🔧 1. FileZilla Bağlantısı
 FileZilla programını indir ve aç.
+
+
 
 Üstteki bağlantı alanlarını doldur:
 
@@ -374,6 +456,9 @@ Hızlı Bağlan butonuna tıkla.
 📂 2. PHP Dosyalarını Hosting'e Yükleme
 Sol panel: Bilgisayarındaki dosyalar
 
+
+
+
 Sağ panel: Hosting sunucundaki dosyalar
 
 Adımlar:
@@ -381,6 +466,8 @@ Adımlar:
 Sol panelden projenin olduğu klasöre git (örnek: diyet-takip)
 
 Sağ panelde ~st23360859024/ gibi klasöre çift tıkla
+
+
 
 Tüm .php, .css, .js dosyalarını sürükle bırak yöntemiyle sağ panele at
 
@@ -391,6 +478,12 @@ Giriş yap
 
 Yeni bir veritabanı oluştur (örnek: spor_takip)
 
+
+
+
+
+
+
 SQL sekmesine şunu yapıştır:
 
 CREATE TABLE users (
@@ -399,6 +492,9 @@ CREATE TABLE users (
     email VARCHAR(100),
     password VARCHAR(255) NOT NULL
 );
+
+
+
 
 CREATE TABLE workout (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -411,6 +507,7 @@ CREATE TABLE workout (
 );
 ⚙️ 4. PHP Bağlantısını Düzenleme
 Tüm .php dosyalarının başına şu bağlantıyı eklemelisin:
+
 
 <?php
 $conn = new mysqli("localhost", "kendi_kullanici_adin", "kendi_sifren", "spor_takip");
