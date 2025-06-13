@@ -1,4 +1,4 @@
-## AI PROPMTLARI
+
 
 
 veritabanımda iki tablo oluşturdum users ve workout şeklinde users ile girilern verileri listelicem workoutda ise yapılan spor çeşitlerini ama bu tabloyu oluşturmada zorluk çekiyorum yardımcı olur musun 
