@@ -46,11 +46,11 @@ Bu proje, **Bursa Teknik Üniversitesi - Web Tabanlı Programlama** dersi kapsam
 
 | Kayıt Ekranı             | Spor Ekleme Formu         |
 |--------------------------|---------------------------|
-| ![register](screenshots/register.png) | ![create](screenshots/create.png) |
+| ![register](screenshots/yeni_kayit.png) | ![create](screenshots/spor_kayit.png) |
 
 | Listeleme Sayfası        | Giriş Ekranı              |
 |--------------------------|---------------------------|
-| ![list](screenshots/list.png) | ![login](screenshots/login.png) |
+| ![list](screenshots/listeleme.png) | ![login](screenshots/login.png) |
 
 ---
 
