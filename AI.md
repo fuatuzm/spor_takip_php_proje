@@ -1,7 +1,3 @@
-veritabanımda iki tablo oluşturdum users ve workout şeklinde users ile girilern verileri listelicem workoutda ise yapılan spor çeşitlerini ama bu tabloyu oluşturmada zorluk çekiyorum yardımcı olur musun 
-
-
-ChatGPT:
 Elbette! Spor Takip Sistemi için users ve workout adlı iki tablo mantıklı bir yapı. Şimdi sana nasıl bir workout tablosu oluşturman gerektiğini detaylı şekilde açıklayayım.
 
 💡 Genel Yapı:
@@ -60,13 +56,6 @@ Veya şimdilik sabit VARCHAR ile geçici olarak tutabiliriz.
 Sence hangisi daha uygun? Daha ileri düzeyde mi istiyorsun, yoksa bu yapı yeterli mi?
 
 
-
-
-
-
-
-Şunu dedin:
-login create list logout.php lerini oluşturmam için bana örnekler gösterir misin 
 
 
 ChatGPT:
@@ -193,15 +182,6 @@ Arayüz sade ama istersen Bootstrap ile şıklaştırabiliriz.
 
 
 
-
-
-
-
-Şunu dedin:
-hocalarımın bana verdiği hosting bilgilerini kullanarak kendi veritabanıma girip bu geliştirdiğim veritabanını oradada oluşturmam gerek nasıl yapıcam
-
-
-ChatGPT:
 Harika soru dostum! Sana adım adım hocanın verdiği hosting bilgileriyle kendi veritabanını nasıl kuracağını ve bu sistemini oraya nasıl taşıyacağını göstereceğim.
 
 🧠 Genel Mantık:
@@ -311,11 +291,7 @@ Yardım istersen birlikte yapabiliriz, hangi aşamadaysan söyle!
 
 
 
-Şunu dedin:
-filezilla çalışma mantığı nedir elimde olan bilgilerle canlı host aktarımı nasıl oluyor 
 
-
-ChatGPT:
 Süper soru dostum! Sana FileZilla'nın mantığını ve elindeki hosting bilgileriyle nasıl canlıya dosya aktaracağını sade ve net şekilde anlatayım.
 
 🧠 FileZilla'nın Temel Mantığı Nedir?
@@ -400,6 +376,7 @@ Bilgisayarın	📤 FTP Üzerinden	🌍 Hosting
 İstersen senin bilgilerle birlikte birebir kontrol edelim.
 👉 FileZilla’da bağlantı kurabildin mi?
 👉 Sağ tarafta hangi klasörler var, ekran görüntüsü at istersen.
+
 
 
 
