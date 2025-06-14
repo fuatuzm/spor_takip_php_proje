@@ -62,7 +62,7 @@ Bu proje, **Bursa Teknik Üniversitesi - Web Tabanlı Programlama** dersi kapsam
 
 ## 🎥 Demo Videosu
 
-📺 [YouTube Video Linki]()
+📺 [YouTube Video Linki](https://www.youtube.com/watch?v=etVMct-oYJI)
 
 
 ---
